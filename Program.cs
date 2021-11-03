@@ -159,7 +159,7 @@ namespace PingPongGame
         {
             Console.Clear();
             string message = "GAME OVER - You missed the ball!";
-            string restartMessage = "Press ESC to exit";
+            string restartMessage = "Press R to restart or ESC to exit";
             int messageX = (Width - message.Length) / 2;
             int restartX = (Width - restartMessage.Length) / 2;
 
@@ -171,11 +171,26 @@ namespace PingPongGame
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key == ConsoleKey.Escape)
+                if (key.Key == ConsoleKey.R)
+                {
+                    ResetGame();
+                }
+                else if (key.Key == ConsoleKey.Escape)
                 {
                     gameRunning = false;
                 }
             }
+        }
+
+        static void ResetGame()
+        {
+            paddleX = Width / 2 - 2;
+            paddleY = Height - 2;
+            ballX = Width / 2.0;
+            ballY = Height / 2.0;
+            ballVelX = 0.5;
+            ballVelY = -0.5;
+            gameOver = false;
         }
     }
 }
