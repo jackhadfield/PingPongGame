@@ -1,0 +1,87 @@
+<Window x:Class="PingPongGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ping Pong Game" 
+        Width="800" 
+        Height="600"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        KeyDown="Window_KeyDown"
+        KeyUp="Window_KeyUp"
+        Focusable="True">
+    <Canvas x:Name="GameCanvas" 
+            Background="Black"
+            Focusable="True">
+        <!-- Top wall -->
+        <Rectangle x:Name="TopWall" 
+                   Fill="White" 
+                   Canvas.Left="0" 
+                   Canvas.Top="0" 
+                   Width="800" 
+                   Height="10"/>
+        
+        <!-- Left wall -->
+        <Rectangle x:Name="LeftWall" 
+                   Fill="White" 
+                   Canvas.Left="0" 
+                   Canvas.Top="0" 
+                   Width="10" 
+                   Height="600"/>
+        
+        <!-- Right wall -->
+        <Rectangle x:Name="RightWall" 
+                   Fill="White" 
+                   Canvas.Left="790" 
+                   Canvas.Top="0" 
+                   Width="10" 
+                   Height="600"/>
+        
+        <!-- Bottom wall -->
+        <Rectangle x:Name="BottomWall" 
+                   Fill="White" 
+                   Canvas.Left="0" 
+                   Canvas.Top="590" 
+                   Width="800" 
+                   Height="10"/>
+        
+        <!-- Paddle -->
+        <Rectangle x:Name="Paddle" 
+                   Fill="White" 
+                   Canvas.Left="350" 
+                   Canvas.Top="550" 
+                   Width="100" 
+                   Height="15"/>
+        
+        <!-- Ball -->
+        <Ellipse x:Name="Ball" 
+                 Fill="White" 
+                 Canvas.Left="390" 
+                 Canvas.Top="290" 
+                 Width="20" 
+                 Height="20"/>
+        
+        <!-- Game Over Overlay -->
+        <Border x:Name="GameOverOverlay" 
+                Background="#CC000000" 
+                Canvas.Left="0" 
+                Canvas.Top="0" 
+                Width="800" 
+                Height="600" 
+                Visibility="Collapsed">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock x:Name="GameOverText" 
+                           Text="GAME OVER - You missed the ball!" 
+                           Foreground="White" 
+                           FontSize="24" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,0,0,20"/>
+                <TextBlock x:Name="RestartText" 
+                           Text="Press R to restart or ESC to exit" 
+                           Foreground="White" 
+                           FontSize="16" 
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+    </Canvas>
+</Window>
